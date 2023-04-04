@@ -10,24 +10,32 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@clerk/chrome-extension": "^0.2.0",
     "plasmo": "0.67.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "^6.10.0",
     "tailwindcss": "3.2.7"
   },
   "devDependencies": {
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.3",
     "@types/chrome": "0.0.224",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "postcss": "8.4.21",
     "prettier": "2.8.4",
-    "typescript": "4.9.5",
-    "@plasmohq/prettier-plugin-sort-imports": "3.6.3"
+    "typescript": "4.9.5"
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "*://oriented-badger-93.clerk.accounts.dev/"
+    ],
+    "permissions": [
+      "storage",
+      "cookies",
+      "tabs",
+      "activeTab"
     ]
   }
 }
