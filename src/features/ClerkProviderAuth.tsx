@@ -11,8 +11,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import PostForm from "~components/PostForm"
 import User from "~components/User"
 
-const publishableKey =
-  "pk_test_b3JpZW50ZWQtYmFkZ2VyLTkzLmNsZXJrLmFjY291bnRzLmRldiQ"
+const publishableKey = process.env.PLASMO_PUBLIC_CLERK_PUBLISHABLE_KEY
 
 function ClerkProviderAuth({ handleSubmit }) {
   const navigate = useNavigate()
