@@ -5,11 +5,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     let originalBorderStyle = null
 
     const handlerClick = (e) => {
+      if (isPicked) return
+
       targetElement.style.border = originalBorderStyle
 
       let text = e.target.innerText
-
-      if (isPicked) return
 
       isPicked = true
       sendResponse({ text: text })

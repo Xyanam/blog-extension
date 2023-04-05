@@ -13,9 +13,8 @@ import User from "~components/User"
 
 const publishableKey = process.env.PLASMO_PUBLIC_CLERK_PUBLISHABLE_KEY
 
-function ClerkProviderAuth({ handleSubmit }) {
+function ClerkProviderAuth() {
   const navigate = useNavigate()
-
   return (
     <ClerkProvider
       publishableKey={publishableKey}
@@ -31,7 +30,7 @@ function ClerkProviderAuth({ handleSubmit }) {
                 <>
                   <SignedIn>
                     <User />
-                    <PostForm handleSubmit={handleSubmit} />
+                    <PostForm />
                   </SignedIn>
                   <SignedOut>
                     <SignIn afterSignInUrl="/" signUpUrl="/sign-up" />
