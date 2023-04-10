@@ -154,7 +154,6 @@ const PostForm = () => {
           Pick
         </button>
       </div>
-
       <div className="flex items-center mt-2">
         <div className="flex flex-col">
           <label htmlFor="title" className="text-black">
