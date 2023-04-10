@@ -5,11 +5,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     let originalBorderStyle = null
 
     const handlerClick = (e) => {
-      targetElement.style.border = originalBorderStyle
+      if (isPicked) return
+
+      targetElement.style.boxShadow = originalBorderStyle
 
       let text = e.target.innerText
-
-      if (isPicked) return
 
       isPicked = true
       sendResponse({ text: text })
@@ -22,14 +22,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       if (isPicked) return
 
       targetElement = e.target
-      originalBorderStyle = targetElement.style.border
+      originalBorderStyle = targetElement.style.boxShadow
 
-      e.target.style.border = "2px solid red"
+      e.target.style.boxShadow = "0px 0px 0px 2px red"
     }
 
     const handleMouseOut = (e) => {
       if (isPicked) return
-      e.target.style.border = originalBorderStyle
+      e.target.style.boxShadow = originalBorderStyle
     }
 
     document.body.addEventListener("mouseover", handleMouseOver)
@@ -48,7 +48,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     const handlerClick = (e) => {
       if (isPicked) return
 
-      targetElement.style.border = originalBorderStyle
+      targetElement.style.boxShadow = originalBorderStyle
 
       let imageSrc = e.target.getAttribute("src")
       sendResponse({ imageSrc })
@@ -61,14 +61,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       if (isPicked) return
 
       targetElement = e.target
-      originalBorderStyle = targetElement.style.border
+      originalBorderStyle = targetElement.style.boxShadow
 
-      e.target.style.border = "2px solid red"
+      e.target.style.boxShadow = "0px 0px 0px 2px red"
     }
 
     const handleMouseOut = (e) => {
       if (isPicked) return
-      e.target.style.border = originalBorderStyle
+      e.target.style.boxShadow = originalBorderStyle
     }
 
     document.body.addEventListener("mouseover", handleMouseOver)

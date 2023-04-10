@@ -29,7 +29,7 @@
   },
   "manifest": {
     "host_permissions": [
-      "*://oriented-badger-93.clerk.accounts.dev/"
+      "<all_urls>"
     ],
     "permissions": [
       "storage",
