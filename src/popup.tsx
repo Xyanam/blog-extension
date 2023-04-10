@@ -9,7 +9,7 @@ import ClerkProviderAuth from "~features/ClerkProviderAuth"
 function IndexPopup() {
   return (
     <MemoryRouter>
-      <div className="w-96">
+      <div className="w-96 h-[440px] popup">
         <ClerkProviderAuth />
       </div>
     </MemoryRouter>

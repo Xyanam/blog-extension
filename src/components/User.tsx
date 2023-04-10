@@ -10,13 +10,24 @@ const User = () => {
   }
 
   return (
-    <div className="flex justify-center items-center my-5">
-      <h1 className="text-xl font-semibold">Hi, {user.firstName}</h1>
-      <button
-        onClick={() => signOut()}
-        className="py-2 px-3 rounded-xl text-md font-semibold border border-black hover:bg-black hover:text-white transition-all ml-3">
-        Sign out
-      </button>
+    <div className="flex flex-col justify-center items-center mt-5">
+      <div>
+        <img
+          src={user.profileImageUrl}
+          alt="avatar"
+          className="rounded-full w-14"
+        />
+      </div>
+      <div className="flex items-center justify-center flex-col">
+        <h1 className="text-xl font-semibold my-2 text-center">
+          Hi, {user.firstName}
+        </h1>
+        <button
+          onClick={() => signOut()}
+          className="py-1 px-1.5 rounded-lg text-xs font-semibold border border-black bg-black text-white hover:bg-black hover:text-white transition-all ml-2">
+          Sign out
+        </button>
+      </div>
     </div>
   )
 }
