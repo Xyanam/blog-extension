@@ -116,3 +116,38 @@
     opacity: 0;
   }
 }
+.form {
+  border: 1px solid black;
+  border-radius: 6px;
+}
+.auth {
+  border: 1px solid black;
+  border-radius: 6px;
+}
+.content {
+  position: relative;
+  transition: 0.2s;
+}
+.content:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.2s;
+}
+
+.plus {
+  position: absolute;
+  left: 24%;
+  transition: 0.2s;
+}
+.plus.active {
+  left: -70%;
+  transition: 0.2s;
+}
+.arrow {
+  position: absolute;
+  left: 110%;
+  transition: 0.2s;
+}
+.arrow.active {
+  left: 24%;
+  transition: 0.2s;
+}
