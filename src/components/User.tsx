@@ -1,5 +1,5 @@
 import { useAuth, useUser } from "@clerk/chrome-extension"
-import React from "react"
+import React, { useEffect } from "react"
 
 const User = () => {
   const { isSignedIn, user } = useUser()
@@ -8,6 +8,9 @@ const User = () => {
   if (!isSignedIn) {
     return null
   }
+  useEffect(() => {
+    chrome.storage.local.set({ isSignedIn: true })
+  }, [])
 
   return (
     <div className="flex flex-col justify-center items-center mt-5">
@@ -23,7 +26,10 @@ const User = () => {
           Hi, {user.firstName}
         </h1>
         <button
-          onClick={() => signOut()}
+          onClick={() => {
+            signOut()
+            chrome.storage.local.set({ isSignedIn: false })
+          }}
           className="py-1 px-1.5 rounded-lg text-xs font-semibold border border-black bg-black text-white hover:bg-black hover:text-white transition-all ml-2">
           Sign out
         </button>

@@ -2,12 +2,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.action === "pick-text") {
     let isPicked = false
     let targetElement = null
-    let originalBorderStyle = null
+    let originalBoxShadow = null
 
     const handlerClick = (e) => {
       if (isPicked) return
 
-      targetElement.style.boxShadow = originalBorderStyle
+      targetElement.style.boxShadow = originalBoxShadow
 
       let text = e.target.innerText
 
@@ -22,14 +22,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       if (isPicked) return
 
       targetElement = e.target
-      originalBorderStyle = targetElement.style.boxShadow
+      originalBoxShadow = targetElement.style.boxShadow
 
       e.target.style.boxShadow = "0px 0px 0px 2px red"
     }
 
     const handleMouseOut = (e) => {
       if (isPicked) return
-      e.target.style.boxShadow = originalBorderStyle
+      e.target.style.boxShadow = originalBoxShadow
     }
 
     document.body.addEventListener("mouseover", handleMouseOver)
@@ -42,13 +42,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   let isPicked = false
   let targetElement = null
-  let originalBorderStyle = null
+  let originalBoxShadow = null
 
   if (request.action === "pick-image") {
     const handlerClick = (e) => {
       if (isPicked) return
 
-      targetElement.style.boxShadow = originalBorderStyle
+      targetElement.style.boxShadow = originalBoxShadow
 
       let imageSrc = e.target.getAttribute("src")
       sendResponse({ imageSrc })
@@ -61,14 +61,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       if (isPicked) return
 
       targetElement = e.target
-      originalBorderStyle = targetElement.style.boxShadow
+      originalBoxShadow = targetElement.style.boxShadow
 
       e.target.style.boxShadow = "0px 0px 0px 2px red"
     }
 
     const handleMouseOut = (e) => {
       if (isPicked) return
-      e.target.style.boxShadow = originalBorderStyle
+      e.target.style.boxShadow = originalBoxShadow
     }
 
     document.body.addEventListener("mouseover", handleMouseOver)
